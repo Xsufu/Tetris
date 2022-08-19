@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         val preferences = AppPreferences(this)
         preferences.clearHighScore()
         Toast.makeText(this, "Score successfully reset", Toast.LENGTH_SHORT).show()
+        tvHighScore?.text = "High Score: ${preferences.getHighScore()}"
     }
 
     private fun onBtnExitClick(view: View) {
