@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import com.xolary.tetris.storage.AppPreferences
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
@@ -34,7 +35,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onBtnResetScoreClick(view: View) {
-
+        val preferences = AppPreferences(this)
+        preferences.clearHighScore()
     }
 
     private fun onBtnExitClick(view: View) {
