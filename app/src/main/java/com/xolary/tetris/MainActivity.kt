@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         tvHighScore = findViewById(R.id.tv_high_score)
 
         btnNewGame.setOnClickListener(this::onBtnNewGameClick)
+        btnResetScore.setOnClickListener(this::onBtnResetScoreClick)
+        btnExit.setOnClickListener(this::onBtnExitClick)
     }
 
     private fun onBtnNewGameClick(view: View) {
@@ -30,4 +33,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun onBtnResetScoreClick(view: View) {
+
+    }
+
+    private fun onBtnExitClick(view: View) {
+        exitProcess(0)
+    }
 }
