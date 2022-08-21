@@ -45,4 +45,28 @@ class AppModel {
             field[row][column] = status
         }
     }
+
+    fun isGameOver(): Boolean {
+        return currentState == Statuses.OVER.name
+    }
+
+    fun isGameActive(): Boolean {
+        return currentState == Statuses.ACTIVE.name
+    }
+
+    fun isGameAwaitingStart(): Boolean {
+        return currentState == Statuses.AWAITING_START.name
+    }
+
+    // Увеличение количества очков и обновление рекорда
+    private fun boostScore() {
+        score += 10
+        if (score > preferences?.getHighScore() as Int)
+                preferences?.saveHighScore(score)
+    }
+
+    // Создание нового экземпляра блока
+    private fun generateNextBlock() {
+        currentBlock = Block.createBlock()
+    }
 }
