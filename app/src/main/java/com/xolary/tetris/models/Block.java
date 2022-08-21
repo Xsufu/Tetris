@@ -5,6 +5,8 @@ import android.graphics.Point;
 
 import androidx.annotation.NonNull;
 
+import com.xolary.tetris.constans.FieldConstants;
+
 import java.util.Random;
 
 public class Block {
