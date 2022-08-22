@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.xolary.tetris.models.AppModel
 import com.xolary.tetris.storage.AppPreferences
 import com.xolary.tetris.view.TetrisView
+import kotlin.system.exitProcess
 
 class GameActivity : AppCompatActivity() {
 
@@ -26,6 +27,7 @@ class GameActivity : AppCompatActivity() {
         appModel.setPreferences(appPreferences)
 
         val btnRestart = findViewById<Button>(R.id.btn_restart)
+        val btnExitToMenu = findViewById<Button>(R.id.btn_exit_to_menu)
         tvHighScore = findViewById(R.id.tv_high_score)
         tvCurrentScore = findViewById(R.id.tv_current_score)
         tetrisView = findViewById(R.id.view_tetris)
@@ -33,8 +35,14 @@ class GameActivity : AppCompatActivity() {
         tetrisView.setModel(appModel)
         tetrisView.setOnTouchListener(this::onTetrisViewTouch)
         btnRestart.setOnClickListener(this::btnRestartClick)
+        btnExitToMenu.setOnClickListener(this::btnExitToMenuClick)
         updateHighScore()
         updateCurrentScore()
+    }
+
+    private fun btnExitToMenuClick(view: View) {
+        appModel.endGame()
+        exitProcess(0)
     }
 
     private fun btnRestartClick(view: View) {
