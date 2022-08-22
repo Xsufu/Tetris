@@ -71,7 +71,6 @@ class TetrisView : View {
     fun setActivity(gameActivity: GameActivity) {
         this.activity = gameActivity
     }
-
     fun setGameCommand(move: AppModel.Motions) {
         if (null != model &&
             (model?.currentState == AppModel.Statuses.ACTIVE.name)
@@ -81,6 +80,7 @@ class TetrisView : View {
                 invalidate()
                 return
             }
+            setGameCommandWithDelay(move)
         }
     }
 
